@@ -20,12 +20,9 @@
 		<h4>Enter in desired numbers to do "Math" to.</h4>
 		<input type="number" name="num1" id="num1"></br>
 		<input type="number" name="num2" id="num2"></br>
-		<input type="radio" name="calcType" id="sum" value="sum" checked><label>Sum</label>
-		<input type="radio" name="calcType" id="subtract" value="subtract"><label>Subtract</label>
-		<input type="radio" name="calcType" id="multiply" value="multiply"><label>Multiply</label>
-		<input type="radio" name="calcType" id="divide" value="divide"><label>Divide</label>
+
 		<h1>MAKE MATH!</h1>
-		<input type="submit" value="Submit" onClick="runCalculation();">
+		<button onClick="runCalculation();">Submit</button>
 
 		<p id="answerPlace">Answer will display here.</p>
 		<!-- any exteranl JS files for the footer? -->
@@ -33,27 +30,9 @@
 			function runCalculation() {
 				var num1 = parseInt(document.getElementById("num1").value),
 					num2 = parseInt(document.getElementById("num2").value);
-				if (document.getElementById("sum").checked === true) {
+
 					document.getElementById("answerPlace").innerHTML = num1 + num2;
 				}
-				else if (document.getElementById("subtract").checked === true) {
-					document.getElementById("answerPlace").innerHTML = num1 - num2;
-				}
-				else if (document.getElementById("multiply").checked === true) {
-					document.getElementById("answerPlace").innerHTML = num1 * num2;
-				}
-				else {
-					document.getElementById("answerPlace").innerHTML = num1 / num2;
-				}
-				/*switch(document.getElementsBy) {
-					case "" :
-						document.getElementById("answerPlace").innerHTML = num1.parseInt() + num2.parseInt();
-						break;
-					case "" :
-						document.getElementById("answerPlace").innerHTML = num1.parseInt() x num2.parseInt();
-						break;
-				}*/
-			}
 		</script>
 	</body>
 </html>
