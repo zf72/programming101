@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- meta -->
+
+		<!-- favicon -->
+		<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+		<link rel="icon" href="./favicon.ico" type="image/x-icon">
+
+
+		<title>Calculator project : programming 101</title>
+
+		<!-- any external stylesheets? -->
+		<!-- any external JS files? -->
+
+	</head>
+	<body>
+		<!-- add some HTML -->
+		<h1>Assignment 3 : Add it all up</h1>
+			<h4>Enter in desired numbers to do "Math" to.</h4>
+			<input type="number" name="num1" id="num1"></br>
+			<input type="number" name="num2" id="num2"></br>
+			<input type="radio" name="operation" id="sum" value="sum" checked="checked"><label for="sum">Sum</label>
+			<input type="radio" name="operation" id="multiply" value="multiply"><label for="multiply">Multiply</label>
+			<h1>MAKE MATH!</h1>
+			<script>
+				var num1,
+						num2;
+
+				console.log(num1, num2);
+			</script>
+			<button onclick="runCalculation();">Go!</button>
+		<p id="answerPlace">Answer will display here.</p>
+		<!-- any exteranl JS files for the footer? -->
+		<script>
+		//var number1 = 3;
+		//var number2 = 4;
+			function runCalculation() {
+				console.log('running the function "runCalculation()"');
+				console.log('What are the values of num1 and num2?', num1, num2);
+
+				num1 = parseInt(document.getElementById("num1").value);
+				num2 = parseInt(document.getElementById("num2").value);
+
+				var sumChecked = document.getElementById("sum").checked;
+				var multiplyChecked = document.getElementById("multiply").checked;
+
+				var result;
+
+				if (sumChecked) {
+					result = num1 + num2;
+				} else if (multiplyChecked) {
+					result = num1 * num2;
+				} else {
+					// nothing checked!
+				}
+
+				console.log(typeof num1, typeof num2);
+				console.log('Is sum checked?', sumChecked, 'Is multiply checked?', multiplyChecked);
+
+				document.getElementById("answerPlace").innerHTML = result;
+			}
+		</script>
+	</body>
+</html>
