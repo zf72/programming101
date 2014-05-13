@@ -20,16 +20,19 @@
 		<h4>Enter in desired numbers to do "Math" to.</h4>
 		<input type="number" name="num1" id="num1"></br>
 		<input type="number" name="num2" id="num2"></br>
+		</br>
 		<input type="radio" name="calcType" id="sum" value="sum" checked><label>Sum</label>
 		<input type="radio" name="calcType" id="subtract" value="subtract"><label>Subtract</label>
 		<input type="radio" name="calcType" id="multiply" value="multiply"><label>Multiply</label>
 		<input type="radio" name="calcType" id="divide" value="divide"><label>Divide</label>
-		<h4>MAKE MATH!</h4><p id="answerPlace">Answer will display here.</p>
-		<img src="" id="pic" width="120px">
+		<h4>MAKE MATH!</h4>
+		<p id="answerPlace">Answer will display here.</p>
+		<img src="./assets/DataTNG.jpg" id="pic" width="120px" style="visibility:hidden">
 		<script>
 		var num1,
 			num2,
-			answer;
+			answer
+			picFun;
 		</script></br>
 		<button onClick="runCalculation();">Submit</button>
 
@@ -43,7 +46,7 @@
 					picFun = document.getElementById("pic");
 				if (isNaN(num1) || isNaN(num2) === true) {
 					answer.innerHTML = "Need Data!";
-					picFun.src = "./assets/DataTNG.jpg";
+					picFun.style.visibility = "visible";
 				}
 				else {
 					if (document.getElementById("sum").checked === true) {
