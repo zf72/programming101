@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- meta -->
+
+		<!-- favicon -->
+		<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+		<link rel="icon" href="./favicon.ico" type="image/x-icon">
+
+
+		<title>Calculator project : programming 101</title>
+
+		<!-- any external stylesheets? -->
+		<!-- any external JS files? -->
+
+	</head>
+	<body>
+		<!-- add some HTML -->
+		<h1>Assignment 4 : Radio options</h1>
+		<h4>Enter in desired numbers to do "Math" to.</h4>
+		<input type="number" name="num1" id="num1"></br>
+		<input type="number" name="num2" id="num2"></br>
+		</br>
+		<input type="radio" name="calcType" id="sum" value="sum" checked><label for="sum">Sum</label>
+		<input type="radio" name="calcType" id="subtract" value="subtract"><label for="subtract">Subtract</label>
+		<input type="radio" name="calcType" id="multiply" value="multiply"><label for="multiply">Multiply</label>
+		<input type="radio" name="calcType" id="divide" value="divide"><label for="divide">Divide</label>
+		<h4>MAKE MATH!</h4>
+		<p id="answerPlace">Answer will display here.</p>
+		<img src="./assets/DataTNG.jpg" id="pic" width="120px" style="display: none; position: absolute; left: 100px;">
+		<script>
+		var num1,
+			num2,
+			answer,
+			picFun;
+		</script>
+		<button onClick="runCalculation();">Submit</button>
+
+
+		<!-- any exteranl JS files for the footer? -->
+		<script>
+			function runCalculation() {
+					num1 = parseInt(document.getElementById("num1").value),
+					num2 = parseInt(document.getElementById("num2").value);
+					answer = document.getElementById("answerPlace");
+					picFun = document.getElementById("pic");
+				if (isNaN(num1) || isNaN(num2) === true) {
+					answer.innerHTML = "Need Data!";
+					picFun.style.display = "inline";
+				}
+				else {
+					if (document.getElementById("sum").checked === true) {
+						answer.innerHTML = num1 + num2;
+					}
+					else if (document.getElementById("subtract").checked === true) {
+						answer.innerHTML = num1 - num2;
+					}
+					else if (document.getElementById("multiply").checked === true) {
+						answer.innerHTML = num1 * num2;
+					}
+					else {
+						answer.innerHTML = num1 / num2;
+					}
+
+					picFun.style.display = "none";
+				}
+			}
+		</script>
+	</body>
+</html>
