@@ -16,10 +16,10 @@
 	</head>
 	<body>
 		<!-- add some HTML -->
-		<h1>Assignment 4 : Radio options</h1>
+		<h1>Assignment 5 : Inline CSS</h1>
 		<h4>Enter in desired numbers to do "Math" to.</h4>
-		<input type="number" name="num1" id="num1"></br>
-		<input type="number" name="num2" id="num2"></br>
+		<input type="number" name="num1" id="num1" style="borderStyle:null"></br>
+		<input type="number" name="num2" id="num2" style=""></br>
 		</br>
 		<input type="radio" name="calcType" id="sum" value="sum" checked><label for="sum">Sum</label>
 		<input type="radio" name="calcType" id="subtract" value="subtract"><label for="subtract">Subtract</label>
@@ -31,6 +31,8 @@
 		<script>
 		var num1,
 			num2,
+			num1Int,
+			num2Int,
 			answer,
 			picFun;
 		</script></br>
@@ -40,26 +42,34 @@
 		<!-- any exteranl JS files for the footer? -->
 		<script>
 			function runCalculation() {
-					num1 = parseInt(document.getElementById("num1").value),
-					num2 = parseInt(document.getElementById("num2").value);
+					num1 = document.getElementById("num1");
+					num2 = document.getElementById("num2");
+					num1Int = parseInt(num1.value),
+					num2Int = parseInt(num2.value);
 					answer = document.getElementById("answerPlace");
 					picFun = document.getElementById("pic");
-				if (isNaN(num1) || isNaN(num2) === true) {
+				if (isNaN(num1Int) || isNaN(num2Int) === true) {
 					answer.innerHTML = "Need Data!";
 					picFun.style.visibility = "visible";
+					num1.style.borderStyle = "outset";
+					num1.style.borderColor = "red";
+					num2.style.borderStyle = "outset";
+					num2.style.borderColor = "red";
+					console.log(num1.style);
+					console.log(num2.style);
 				}
 				else {
 					if (document.getElementById("sum").checked === true) {
-						answer.innerHTML = num1 + num2;
+						answer.innerHTML = num1Int + num2Int;
 					}
 					else if (document.getElementById("subtract").checked === true) {
-						answer.innerHTML = num1 - num2;
+						answer.innerHTML = num1Int - num2Int;
 					}
 					else if (document.getElementById("multiply").checked === true) {
-						answer.innerHTML = num1 * num2;
+						answer.innerHTML = num1Int * num2Int;
 					}
 					else {
-						answer.innerHTML = num1 / num2;
+						answer.innerHTML = num1Int / num2Int;
 					}
 				}
 			}
