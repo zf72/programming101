@@ -9,14 +9,14 @@
 
 
 		<title>Calculator project : programming 101</title>
-
+		<link type="text/css" rel="stylesheet" href="assets/css/custom.css">
 		<!-- any external stylesheets? -->
 		<!-- any external JS files? -->
 
 	</head>
 	<body>
 		<!-- add some HTML -->
-		<h1>Assignment 5 : Inline CSS</h1>
+		<h1>Assignment  : CSS</h1>
 		<h4>Enter in desired numbers to do "Math" to.</h4>
 		<input type="number" name="num1" id="num1"><br>
 		<input type="number" name="num2" id="num2"><br>
@@ -27,7 +27,7 @@
 		<input type="radio" name="calcType" id="divide" value="divide"><label for="divide">Divide</label>
 		<h4>MAKE MATH!</h4>
 		<p id="answerPlace">Answer will display here.</p>
-		<img src="./assets/DataTNG.jpg" id="pic" width="120px" style="display:none; position:absolute; left:100px;">
+		<img src="./assets/DataTNG.jpg" id="pic">
 		<script>
 		var num1,
 			num2,
@@ -48,8 +48,8 @@
 					num2Int = parseInt(num2.value);
 					answer = document.getElementById("answerPlace");
 					picFun = document.getElementById("pic");
-					num1.style.borderStyle = "initial";
-					num2.style.borderStyle = "initial";
+					//num1.class = "num1";
+					//num2.class = "num2";
 					console.log("Revert" + + num1.style.borderStyle + " " + num2.style.borderStyle);
 				if (isNaN(num1Int) && isNaN(num2Int) === true) {
 					answer.innerHTML = "Need Data!";
@@ -89,8 +89,8 @@
 						answer.innerHTML = num1Int / num2Int;
 						}
 					picFun.style.display = "none";
-					num1.style.borderStyle = "initial";
-					num2.style.borderStyle = "initial";
+					document.getElementById("num1").class = "num1";
+					document.getElementById("num2").class = "num2";
 					console.log("Finale output" + + num1.style.borderStyle + " " + num2.style.borderStyle);
 				}
 			}
