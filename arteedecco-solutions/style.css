@@ -1,0 +1,14 @@
+/* style.css */
+body {background-color: #eee; color: #333; text-shadow: 1px 1px #fff; font-family: Arial, sans; font-size: 1.5em;}
+
+#workarea {margin: 0.25em; padding: 0.25em 50px; background-color: #fff; width: 80%;}
+
+#workarea .area {border: 1px solid #777; position: relative; width: 200px; height: 200px;}
+
+#workarea .area#area1 {}
+#workarea .area#area2 {left: 201px; top: -202px;}
+#workarea .area#area3 {top: -203px;}
+#workarea .area#area4 {left: 201px; top: -405px;}
+
+#workarea .area.active {border-color: #adf; z-index: 99999; -webkit-box-shadow: 3px 3px 2.0em #aae; overflow: hidden;}
+#workarea .area.active .text {word-break: break-all;}

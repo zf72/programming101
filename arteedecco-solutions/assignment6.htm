@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- meta -->
+
+		<!-- favicon -->
+		<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+		<link rel="icon" href="./favicon.ico" type="image/x-icon">
+
+
+		<title>Programming 101 : Assignment 6</title>
+
+		<!-- any external stylesheets? -->
+		<!-- Add them here -->
+		<link rel="stylesheet" href="style.css">
+
+		<!-- any external JS files? -->
+		<!-- Add them here -->
+
+	</head>
+	<body>
+		<!-- add some HTML -->
+		<h1>Assignment 6</h1>
+		<ol>
+			<li>Add jQuery as external script reference</li>
+			<li>Add Bootstrap as external script reference</li>
+			<li>Add an external stylesheet for CSS for this page</li>
+		</ol>
+
+		<div id="workarea">
+			<div id="area1" class="area"><h3>area1</h3><p class="text"></p></div>
+			<div id="area2" class="area"><h3>area2</h3><p class="text"></p></div>
+			<div id="area3" class="area"><h3>area3</h3><p class="text"></p></div>
+			<div id="area4" class="area"><h3>area4</h3><p class="text"></p></div>
+		</div>
+
+		<!-- Any exteranl JS files for the footer? -->
+		<!-- Add them here -->
+
+		<!-- Any embedded JS for the footer? -->
+		<script>
+			// Add here...
+			var areas = [
+				document.getElementById('area1'),
+				document.getElementById('area2'),
+				document.getElementById('area3'),
+				document.getElementById('area4')
+			];
+
+			function removeClass(el, className) {
+				var classes = el.attributes['class'].value.replace(className, '').trim();
+				el.setAttribute('class', classes);
+			}
+
+			function addClass(el, className) {
+				var exists = el.attributes['class'].value.match(className);
+				if (!exists) {
+					el.setAttribute('class', el.attributes['class'].value + ' ' + className);
+				}
+			}
+
+			console.log(areas);
+
+			areas.forEach(function(area, i) {
+				area.onclick = function() {
+					addClass(this, 'active');
+					document.getElementsByTagName('body')[0].onkeypress = function(evt) {
+						var chr = String.fromCharCode(evt.which);
+						var el = area.getElementsByTagName('p')[0];
+						el.innerText = el.innerText + chr;
+					};
+					areas.forEach(function(area, j) {
+						if (j !== i) {
+							removeClass(area, 'active');
+						}
+					});
+				};
+			});
+
+
+		</script>
+	</body>
+</html>
