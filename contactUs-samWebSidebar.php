@@ -1,9 +1,17 @@
-<li>
-	<script>
+
+
+
+
+
+
+
+<li class="<?php if ($dashboard != false || $vendor != false){print "active";}?>">
+	<a href= "help.php?section=Vendor">
+	<!-- <script>
 		if (document.URL === "studioOverview.php") {
 			location.href = "https://samweb.nordstrom.net/help.php?section=Studio%20Dashboard&title=Studio%20Overview";
 		}
-		else if (document.URL === "studioOverview.php?studio=Georgetown" || "studioOverview.php?studio=SODO" || "studioOverview.php?studio=Studio C" || "studioOverview.php?studio=New York") {
+		else if (document.URL === "studioOverview.php?studio") {
 			location.href = "https://samweb.nordstrom.net/help.php?section=Studio%20Dashboard&title=Individual%20Studio";
 		}
 		else if (document.URL === "setdetail.php") {
@@ -12,7 +20,7 @@
 		else if (document.URL === "iptOverview.php") {
 			location.href = "https://samweb.nordstrom.net/help.php?section=IPT%20Dashboard&title=IPT%20Overview";
 		}
-		else if (document.URL === "iptOverview.php?studio=Seattle IPT" || "iptOverview.php?studio=Seattle IPT" || "iptOverview.php?studio=SODO" || "iptOverview.php?studio=Studio C") {
+		else if (document.URL === "iptOverview.php?studio" || "iptOverview.php?studio=Seattle IPT" || "iptOverview.php?studio=SODO" || "iptOverview.php?studio=Studio C") {
 			location.href = "https://samweb.nordstrom.net/help.php?section=IPT%20Dashboard&title=Individual%20IPT";
 		}
 		else if (document.URL === "iptdetail.php") {
@@ -42,8 +50,9 @@
 		else {
 			location.href = "mailto:studioncst@exchange.nordstrom.com?subject=SAMWeb Support - <?=$ticket_timestamp?>&body=<?=$contactBody?>";
 		};
-	</script>
-	<a href="mailto:studioncst@exchange.nordstrom.com?subject=SAMWeb Support - <?=$ticket_timestamp?>&body=<?=$contactBody?>">
+	</script> -->
+
+	<!-- <a href="mailto:studioncst@exchange.nordstrom.com?subject=SAMWeb Support - <?=$ticket_timestamp?>&body=<?=$contactBody?>"> -->
 		<i class="fa fa-envelope-o"></i>
 		<span class="title">Contact Us</span>
 		<span class="badge badge-roundless badge-success">New</span>
