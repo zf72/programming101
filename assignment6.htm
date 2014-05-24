@@ -37,6 +37,8 @@
 			picFun;
 		</script><br>
 		<button onClick="runCalculation();" >Submit</button><br>
+		<br>
+		<button onClick="contactUs();" >Contact Us</button><br>
 
 
 		<!-- any exteranl JS files for the footer? -->
@@ -92,6 +94,22 @@
 					num1.style.className = num1;
 					num2.style.borderStyle = 0;
 					console.log("Finale output" + + num1.style.borderStyle + " " + num2.style.borderStyle);
+				}
+			}
+
+			function contactUs() {
+				//var currentPage = location.href;
+				//var currentPage = window.location.protocol + "//" + window.location.host + "/" + window.location.pathname;
+				//var currentPage = window.location.pathname;
+				var pathArray = window.location.pathname.split( '/' );
+				var currentPage = pathArray[pathArray.length-1];
+				alert(currentPage);
+				switch (currentPage){
+					case "assignment6.htm":
+						location.href="assignment5.htm";
+						break;
+					default:
+						location.href="assignment4.htm";
 				}
 			}
 		</script>
