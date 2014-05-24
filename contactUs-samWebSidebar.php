@@ -5,8 +5,23 @@
 
 
 
-<li class="<?php if ($dashboard != false || $vendor != false){print "active";}?>">
-	<a href= "help.php?section=Vendor">
+<li <?php
+	$currentPage;
+
+	switch ($currentPage){
+		case "studioOverview.php":
+			echo '<a href="https://samweb.nordstrom.net/help.php?section=Studio%20Dashboard&title=Studio%20Overview"></a>';
+			break;
+		case "studioOverview.php":
+			echo '<a href="https://samweb.nordstrom.net/help.php?section=Studio%20Dashboard&title=Studio%20Overview"></a>';
+			break;
+		default:
+			echo '<a href="mailto:studioncst@exchange.nordstrom.com?subject=SAMWeb Support - <?=$ticket_timestamp?>&body=<?=$contactBody?>">';
+		}
+	?>
+>
+
+
 	<!-- <script>
 		if (document.URL === "studioOverview.php") {
 			location.href = "https://samweb.nordstrom.net/help.php?section=Studio%20Dashboard&title=Studio%20Overview";
