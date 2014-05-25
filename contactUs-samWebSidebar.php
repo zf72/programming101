@@ -1,10 +1,3 @@
-
-
-
-
-
-
-
 <li <?php
 	$currentPage;
 
