@@ -1,3 +1,10 @@
+
+
+
+
+
+				<!-- !!!! PHP VERSION: CURRENTLY INCOMPLETE !!!! -->
+
 <li <?php
 	$currentPage;
 
@@ -18,25 +25,60 @@
 		<span class="badge badge-roundless badge-success">New</span>
 	</a>
 </li>
-<!--
 
-<a href="studioOverview.php">
-<a href="studioOverview.php?studio=Georgetown">
-<a href="studioOverview.php?studio=SODO">
-<a href="studioOverview.php?studio=Studio C">
-<a href="studioOverview.php?studio=New York">
+				<!-- !!!! JavaScript VERSION !!!! -->
 
-<a href="historySearch.php">
+<li onclick="contactUs();">
+	<i class="fa fa-envelope-o"></i>
+	<span class="title">Contact Us</span>
+	<span class="badge badge-roundless badge-success">New</span>
+</li>
 
-<a href="iptOverview.php">
-<a href="iptOverview.php?studio=Seattle IPT">
-<a href="iptOverview.php?studio=SODO">
-<a href="iptOverview.php?studio=Studio C">
-<a href="imageReview.php">
-<a href="reporting.php">
-<a href="dashboard.php">
-<a href="releaseNotes.php?pg=web">
-<a href="releaseNotes.php?pg=app">
-<a href="help.php">
-
-	-->
+<script>
+	function contactUs() {
+	var pathArray = window.location.pathname.split( '/' );
+	var currentPage = pathArray[pathArray.length-1];
+	switch (currentPage){
+		case "studioOverview.php":
+		location.href="help.php?section=Studio%20Dashboard&title=Studio%20Overview";
+		break;
+		case "studioOverview.php?studio":
+		location.href="help.php?section=Studio%20Dashboard&title=Individual%20Studio";
+		break;
+		case "setdetail.php":
+		location.href="help.php?section=Studio%20Dashboard&title=Set%20Detail";
+		break;
+		case "iptOverview.php":
+		location.href = "help.php?section=IPT%20Dashboard&title=IPT%20Overview";
+		break;
+		case "iptOverview.php?studio":
+		location.href="help.php?section=IPT%20Dashboard&title=Individual%20IPT";
+		break;
+		case "iptdetail.php":
+		location.href="help.php?section=IPT%20Dashboard&title=IPT%20Detail";
+		break;
+		case "imageReview.php":
+		location.href="help.php?section=Image%20Review";
+		break;
+		case "reporting.php":
+		location.href="help.php?section=Reporting";
+		break;
+		case "dashboard.php#tabDashboard":
+		location.href="help.php?section=General";
+		break;
+		case "dashboard.php":
+		location.href="help.php?section=Vendor";
+		break;
+		case "vendorImages.php?status=assign":
+		location.href="help.php?section=Vendor&title=Assigning%20Images";
+		break;
+		case "vendorImages.php?status=pendingipt":
+		location.href="help.php?section=Vendor&title=IPT%20image%20review";
+		break;
+		case "vendorImages.php?status=pendingad":
+		location.href="help.php?section=Vendor&title=AD%20image%20review";
+		break;
+		default:
+		location.href="mailto:studioncst@exchange.nordstrom.com?subject=SAMWeb Support - <?=$ticket_timestamp?>&body=<?=$contactBody?>";
+	}
+</script>
