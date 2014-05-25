@@ -5,54 +5,21 @@
 
 
 
-<li class="<?php if ($dashboard != false || $vendor != false){print "active";}?>">
-	<a href= "help.php?section=Vendor">
-	<!-- <script>
-		if (document.URL === "studioOverview.php") {
-			location.href = "https://samweb.nordstrom.net/help.php?section=Studio%20Dashboard&title=Studio%20Overview";
-		}
-		else if (document.URL === "studioOverview.php?studio") {
-			location.href = "https://samweb.nordstrom.net/help.php?section=Studio%20Dashboard&title=Individual%20Studio";
-		}
-		else if (document.URL === "setdetail.php") {
-			location.href = "https://samweb.nordstrom.net/help.php?section=Studio%20Dashboard&title=Set%20Detail";
-		}
-		else if (document.URL === "iptOverview.php") {
-			location.href = "https://samweb.nordstrom.net/help.php?section=IPT%20Dashboard&title=IPT%20Overview";
-		}
-		else if (document.URL === "iptOverview.php?studio" || "iptOverview.php?studio=Seattle IPT" || "iptOverview.php?studio=SODO" || "iptOverview.php?studio=Studio C") {
-			location.href = "https://samweb.nordstrom.net/help.php?section=IPT%20Dashboard&title=Individual%20IPT";
-		}
-		else if (document.URL === "iptdetail.php") {
-			location.href = "https://samweb.nordstrom.net/help.php?section=IPT%20Dashboard&title=IPT%20Detail";
-		}
-		else if (document.URL === "imageReview.php") {
-			location.href = "https://samweb.nordstrom.net/help.php?section=Image%20Review";
-		}
-		else if (document.URL === "reporting.php") {
-			location.href = "https://samweb.nordstrom.net/help.php?section=Reporting";
-		}
-		else if (document.URL === "dashboard.php#tabDashboard") {
-			location.href = "https://samweb.nordstrom.net/help.php?section=General";
-		}
-		else if (document.URL === "dashboard.php") {
-			location.href = "https://samweb.nordstrom.net/help.php?section=Vendor";
-		}
-		else if (document.URL === "vendorImages.php?status=assign") {
-			location.href = "https://samweb.nordstrom.net/help.php?section=Vendor&title=Assigning%20Images";
-		}
-		else if (document.URL === "vendorImages.php?status=pendingipt") {
-			location.href = "https://samweb.nordstrom.net/help.php?section=Vendor&title=IPT%20image%20review";
-		}
-		else if (document.URL === "vendorImages.php?status=pendingad") {
-			location.href = "https://samweb.nordstrom.net/help.php?section=Vendor&title=AD%20image%20review";
-		}
-		else {
-			location.href = "mailto:studioncst@exchange.nordstrom.com?subject=SAMWeb Support - <?=$ticket_timestamp?>&body=<?=$contactBody?>";
-		};
-	</script> -->
+<li <?php
+	$currentPage;
 
-	<!-- <a href="mailto:studioncst@exchange.nordstrom.com?subject=SAMWeb Support - <?=$ticket_timestamp?>&body=<?=$contactBody?>"> -->
+	switch ($currentPage){
+		case "studioOverview.php":
+			echo '<a href="https://samweb.nordstrom.net/help.php?section=Studio%20Dashboard&title=Studio%20Overview">';
+			break;
+		case "studioOverview.php":
+			echo '<a href="https://samweb.nordstrom.net/help.php?section=Studio%20Dashboard&title=Studio%20Overview">';
+			break;
+		default:
+			echo '<a href="mailto:studioncst@exchange.nordstrom.com?subject=SAMWeb Support - <?=$ticket_timestamp?>&body=<?=$contactBody?>">';
+		}
+	?>
+>
 		<i class="fa fa-envelope-o"></i>
 		<span class="title">Contact Us</span>
 		<span class="badge badge-roundless badge-success">New</span>
