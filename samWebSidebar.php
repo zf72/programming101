@@ -187,115 +187,25 @@ if (strpos($currentPage,'iptoverview') !== false || strpos($currentPage,'iptdeta
                 <a href="help.php">
                 <i class="fa fa-question"></i>
                 <span class="title">Help</span>
- 			   				</a>
+   				</a>
              </li>
 
-			<!-- AARON'S CODE FOR CHECKING CURRENT PAGE AND ROUTING TO CORRESPONDING HELP PAGE -->
-
-			<?php
-				// Need to add the following
-				$queryString = strtolower($_SERVER['QUERY_STRING']);
-				$status = (isset($_GET['status'])) ? $_GET['status'] : "";
-				$currentPageParts = explode('/' , $currentPage);
-
-				$helpLink = "";
-
-				switch(end($currentPageParts)) {
-				// Using strtolower on each value to integrate seamlessly with established page logic for $currentPage
-					case strtolower('studioOverview.php'):
-						switch($studioName) {
-							case strtolower('Georgetown'): //is this the best way to call the studios
-								$helpLink = 'help.php?section=Studio%20Dashboard&title=Individual%20Studio';
-								break;
-							default:
-								$helpLink = 'help.php?section=Studio%20Dashboard&title=Studio%20Overview';
-								break;
+             <li>
+             	<a <?php if (($currentPage == 'help') === true){
+						 print "href='mailto:studioncst@exchange.nordstrom.com?subject=SAMWeb Support - <?=$ticket_timestamp?>&body=<?=$contactBody?>'";
 						}
-						break;
-					case strtolower('setdetail.php'):
-						$helpLink = 'help.php?section=Studio%20Dashboard&title=Set%20Detail';
-						break;
-					case strtolower('iptOverview.php'):
-						switch($studioName) {
-							case strtolower('Georgetown'): //is this the best way to call the studios
-								$helpLink = 'help.php?section=IPT%20Dashboard&title=Individual%20IPT';
-								break;
-							default:
-								$helpLink = 'help.php?section=IPT%20Dashboard&title=IPT%20Overview';
-								break;
-						}
-						break;
-					case strtolower('iptdetail.php'):
-						$helpLink = 'help.php?section=IPT%20Dashboard&title=IPT%20Detail';
-						break;
-					case strtolower('imageReview.php'):
-						$helpLink = 'help.php?section=Image%20Review';
-						break;
-					case strtolower('reporting.php'):
-						$helpLink = 'help.php?section=Reporting';
-						break;
-					case strtolower('dashboard.php'):
-						switch($status) {
-							case 'assign':
-								$helpLink = "help.php?section=Vendor&title=Assigning%20Images";
-								break;
-							case 'pendingipt':
-								$helpLink = "help.php?section=Vendor&title=IPT%20image%20review";
-								break;
-							case 'pendingad':
-								$helpLlink = "help.php?section=Vendor";
-								break;
-							default:
-								$helpLink = "help.php?section=Vendor&title=AD%20image%20review";
-								break;
-						}
-						break;
-					/*  =======  HASHTAGS DO NOT SEEM TO WORK IN PHP PERHAPS THE JAVASCRIPT BELOW WILL HELP
-					case strtolower('dashboard.php#tabDashboard'):
-						$helpLink = 'help.php?section=General";
-						break;
-					*/
-					default:
-						$helpLink = 'mailto:studioncst@exchange.nordstrom.com?subject=SAMWeb Support - <?=$ticket_timestamp?>&body=<?=$contactBody?>';
-						break;
-				}
-			?>
-
-			<li>
-				<a id="helpContact" href="<?php echo $helpLink; ?>">
-					<i class="fa fa-question"></i>
-					<span class="title">Contact Us</span> <!-- RENAME 'CONTACT US' TO SOMETHING LIKE "HELP & CONTACT" -->
-				</a>
-			</li>
-
-			<script>
-				var pathArray = window.location.pathname.split( '/' );
-				var currentPage = pathArray[pathArray.length-1];
-
-				switch (currentPage) {
-					case 'dashboard.php':
-						var hash = window.location.hash,
-							a = document.getElementById('help'), // document.getElementById('help');
-							helpLink = "mailto:studioncst@exchange.nordstrom.com?subject=SAMWeb Support - <?=$ticket_timestamp?>&body=<?=$contactBody?>";
-						switch (hash) {
-							case '#tabDashboard':
-								helpLink = "help.php?section=General";
-								break;
-							default:
-								// is a link needed here
-								break;
-						}
-						break;
-					default:
-
-						break;
-					}
-
-				a.href = helpLink;
-			</script>
-
+							else {
+						 print "id='contactUsLink'";
+         			}
+         		?>>
+	                <i class="fa fa-envelope-o"></i>
+	                <span class="title">Contact Us</span>
+                   <span class="badge badge-roundless badge-success">New</span>
+              	</a>
+             </li>
 
 	         </ul>
 	         <!-- END SIDEBAR MENU -->
 	      </div>
 	    </div>
+
