@@ -160,15 +160,21 @@ $('#buttonLogout').click(function(event) {
 
 
 $('document').ready(function(event){
-	$(window).hashchange(function(event){
+	//$('#contactUsLink').attr('href', getContactUsHelpLink());
+	//console.log("Link:" + getContactUsHelpLink());
+
+
+	//$(window).hashchange(function(event){
 	//code to update link url here
+		//console.log("hash change");
 
 		$('#contactUsLink').attr('href', getContactUsHelpLink());
 		console.log("Link:" + getContactUsHelpLink());
 
-	});
+	//});
 
-	$(window).hashchange();
+	//$(window).hashchange();
+
 });
 
 
@@ -180,15 +186,22 @@ function getContactUsHelpLink() {
 	var pathArray = window.location.pathname.split( '/' );
 	var currentPage = pathArray[pathArray.length-1];
 	var studioName = studioCheck(); //get the current studio
+	alert(studioName);
 	var status = statusCheck(); //get the current status
 	var statusType = "";
 	var hash = window.location.hash;
 	var contactUsEmail = '';
+	var studioLocations = ["Georgetown", "SODO", "Studio C", "New York"];
+	var studioLocationsLength = studioLocations.length;
 
 	function studioCheck() {
-		if (window.location.href.indexOf("Georgetown") > -1) {
-			studioName = "studio";
-			return studioName;
+		for (var i = 0; i <= studioLocationsLength; i++){
+			//console.log("check");
+			if (window.location.href.indexOf(studioLocations[i]) > -1) { // how to get all the individual studios
+				studioName = "studio";
+					//console.log(studioName);
+				return studioName;
+			}
 		}
 	}
 
