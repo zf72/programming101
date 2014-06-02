@@ -191,11 +191,11 @@ if (strpos($currentPage,'iptoverview') !== false || strpos($currentPage,'iptdeta
              </li>
 
              <li>
-             	<a <?php if (($currentPage == 'help') === true){
-						 print "href='mailto:studioncst@exchange.nordstrom.com?subject=SAMWeb Support - <?=$ticket_timestamp?>&body=<?=$contactBody?>'";
-						}
-							else {
-						 print "id='contactUsLink'";
+             	<a <?php if (strpos($currentPage,'help')){
+						echo "href='mailto:studioncst@exchange.nordstrom.com?subject=SAMWeb Support - $ticket_timestamp&body=$contactBody'";
+					}
+					else {
+						echo "id='contactUsLink'";
          			}
          		?>>
 	                <i class="fa fa-envelope-o"></i>

@@ -158,86 +158,60 @@ $('#buttonLogout').click(function(event) {
 
 /* CONTACT US - HELP Docs. AARON'S CODE FOR CHECKING CURRENT PAGE AND ROUTING TO CORRESPONDING HELP PAGE */
 
-
 $('document').ready(function(event){
-	//$('#contactUsLink').attr('href', getContactUsHelpLink());
-	//console.log("Link:" + getContactUsHelpLink());
-
-
-	//$(window).hashchange(function(event){
-	//code to update link url here
+	$(window).bind('hashchange', function(){
 		//console.log("hash change");
-
 		$('#contactUsLink').attr('href', getContactUsHelpLink());
-		console.log("Link:" + getContactUsHelpLink());
-
-	//});
-
-	//$(window).hashchange();
-
+		//console.log("Link:" + getContactUsHelpLink());
+	});
+	$('#contactUsLink').attr('href', getContactUsHelpLink());
+	//console.log("Link:" + getContactUsHelpLink());
 });
 
+// Returns whether or not this is an individual studio page
+function studioCheck() {
+		if (window.location.href.indexOf('?studio=') > -1) {
+			return true;
+		}
+}
 
+// Returns the type of vendor image status page user is on
+function statusCheck() {
+	if (window.location.href.indexOf("status") > -1) {
+		return status;
+	}
+}
 
-
+// Selects corresponding HELP page from current page user is on
 function getContactUsHelpLink() {
 
 	var helpLink = "";
 	var pathArray = window.location.pathname.split( '/' );
 	var currentPage = pathArray[pathArray.length-1];
-	var studioName = studioCheck(); //get the current studio
-	alert(studioName);
-	var status = statusCheck(); //get the current status
-	var statusType = "";
+	var ifStudio = studioCheck(); //check if individual studio
+	var status = statusCheck(); //get the current vendor page status
+	//var statusType = "";
 	var hash = window.location.hash;
-	var contactUsEmail = '';
-	var studioLocations = ["Georgetown", "SODO", "Studio C", "New York"];
-	var studioLocationsLength = studioLocations.length;
-
-	function studioCheck() {
-		for (var i = 0; i <= studioLocationsLength; i++){
-			//console.log("check");
-			if (window.location.href.indexOf(studioLocations[i]) > -1) { // how to get all the individual studios
-				studioName = "studio";
-					//console.log(studioName);
-				return studioName;
-			}
-		}
-	}
-
-	/* need to figure out how to get assign, pendingipt, and pendingad */
-	function statusCheck() {
-		if (window.location.href.indexOf("status") > -1) {
-			status = "status";
-			//statusType = currentPage;
-			return status;
-		}
-	}
-
+	//var contactUsEmail = '';
+	//console.log(currentPage);
 	//return currentPage;
 
 	switch (currentPage) {
 		case ("studioOverview.php"):
-			switch (studioName) {
-				case ("studio"): //is this the best way to call the studios
-					helpLink = "help.php?section=Studio%20Dashboard&title=Individual%20Studio";
-					break;
-				default:
-					helpLink = "help.php?section=Studio%20Dashboard&title=Studio%20Overview";
-					break;
+			if(ifStudio){
+				helpLink = "help.php?section=Studio%20Dashboard&title=Individual%20Studio";
+			}else{
+				helpLink = "help.php?section=Studio%20Dashboard&title=Studio%20Overview";
 			}
 			break;
 		case ("setdetail.php"):
 			helpLink = "help.php?section=Studio%20Dashboard&title=Set%20Detail";
 			break;
 		case ("iptOverview.php"):
-			switch(studioName) {
-				case ("studio"): //is this the best way to call the studios
-					helpLink = "help.php?section=IPT%20Dashboard&title=Individual%20IPT";
-					break;
-				default:
-					helpLink = "help.php?section=IPT%20Dashboard&title=IPT%20Overview";
-					break;
+			if(ifStudio){
+				helpLink = "help.php?section=IPT%20Dashboard&title=Individual%20IPT";
+			}else{
+				helpLink = "help.php?section=IPT%20Dashboard&title=IPT%20Overview";
 			}
 			break;
 		case ("iptdetail.php"):
@@ -249,38 +223,35 @@ function getContactUsHelpLink() {
 		case ("reporting.php"):
 			helpLink = "help.php?section=Reporting";
 			break;
-		case ("dashboard.php"):
-			switch(status) {
-				case "assign":
-					helpLink = "help.php?section=Vendor&title=Assigning%20Images";
-					break;
-				case "pendingipt":
+		case ("vendorImages.php"):
+			if (window.location.href.indexOf('status=assign')!==-1){
+				helpLink = "help.php?section=Vendor&title=Assigning%20Images";
+			}else if (window.location.href.indexOf('status=pendingipt')!==-1){
 					helpLink = "help.php?section=Vendor&title=IPT%20image%20review";
-					break;
-				case "pendingad":
+			}else{
 					helpLink = "help.php?section=Vendor&title=AD%20image%20review";
+			}
+			break;
+		case ("dashboard.php"):
+			switch (hash) {
+				case "#tabDashboard":
+					helpLink = "help.php?section=General";
+					break;
+				case "#tabVendor":
+					helpLink = "help.php?section=Vendor";
+					break;
+				case "#tabShowroomImages":
+					helpLink = "help.php";
 					break;
 				default:
-				/* HASH DOES NOT SEEM TO WORK */
-					switch (hash) {
-						case "#tabDashboard":
-							helpLink = "help.php?section=General";
-							break;
-						case "#tabVendor":
-							helpLink = "help.php?section=Vendor";
-							break;
-						default:
-							helpLink = "help.php?section=Vendor";
-							break;
-						}
-						break;
+					helpLink = "help.php?section=Vendor&title=PC%20vendor%20dashboard";
 					break;
-			}
+				}
 			break;
 		default:
 			helpLink = "help.php";
 			break;
 		}
-
+		//console.log(helpLink);
 	return helpLink;
 }
